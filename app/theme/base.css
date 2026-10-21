@@ -1,0 +1,38 @@
+/* SlideForge base themes — スライド面の共通スタイル */
+.slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans JP', 'Inter', sans-serif;
+}
+.theme-white { background: #ffffff; color: #1f2937; }
+.theme-dark  { background: #0f172a; color: #f1f5f9; }
+.theme-blue  { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: #ffffff; }
+
+.sf-obj { position: absolute; box-sizing: border-box; }
+.sf-textbox, .sf-animate { overflow: visible; word-break: break-word; }
+.sf-content h1 { font-size: 1.8em; margin: 0 0 .3em; font-weight: 700; }
+.sf-content h2 { font-size: 1.5em; margin: 0 0 .3em; font-weight: 700; }
+.sf-content h3 { font-size: 1.25em; margin: 0 0 .25em; font-weight: 700; }
+.sf-content h4 { font-size: 1.1em; margin: 0 0 .2em; font-weight: 700; }
+.sf-content p  { margin: 0 0 .35em; }
+.sf-content ul { margin: 0 0 .35em 1.2em; padding: 0; }
+.sf-content li { margin: .15em 0; }
+.sf-content code { background: rgba(127,127,127,.18); padding: .05em .3em; border-radius: 4px; font-family: monospace; }
+.sf-content table { border-collapse: collapse; width: 100%; }
+.sf-content th, .sf-content td { border: 2px solid currentColor; padding: .25em .6em; }
+.sf-content th { background: rgba(127,127,127,.15); }
+.sf-table { overflow: hidden; border-radius: 12px; background: #fff; color: #1f2937; }
+.sf-table table { width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; }
+.sf-table th, .sf-table td { border: 2px solid rgba(15,23,42,.2); padding: .45em .65em; text-align: left; }
+.sf-table th { background: var(--table-header, #2563eb); color: #fff; font-weight: 700; }
+.sf-table tr:nth-child(odd) td { background: var(--table-stripe, #eff6ff); }
+.sf-chart { overflow: hidden; border-radius: 12px; background: rgba(255,255,255,.96); }
+.sf-chart svg { display: block; width: 100%; height: 100%; }
+.sf-image img, .sf-video video { width: 100%; height: 100%; object-fit: fill; display: block; }
+.sf-audio-icon { display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.55); color: #fff; border-radius: 50%; cursor: pointer; user-select: none; }
+.sf-audio-glyph { font-size: 34px; }
+.sf-badge { position: absolute; left: 8px; top: 8px; background: rgba(0,0,0,.6); color: #fff;
+  font-size: 22px; padding: 4px 12px; border-radius: 6px; pointer-events: none; }

@@ -1,0 +1,113 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: "Noto Sans JP", "Inter", sans-serif;
+}
+#stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#stage .slide {
+  transform-origin: center center;
+  flex: none;
+}
+.sf-transition-layer {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  flex: none;
+  transform-origin: center center;
+}
+.sf-transition-layer > .slide {
+  position: absolute;
+  inset: 0;
+}
+#menuBtn {
+  position: fixed;
+  left: 14px;
+  top: 14px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: .35;
+  transition: opacity .2s;
+}
+#menuBtn:hover { opacity: 1; }
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  z-index: 90;
+  background: rgba(15,20,30,.96);
+  color: #dbe4f0;
+  transform: translateX(-100%);
+  transition: transform .2s;
+  padding: 64px 12px 12px;
+  overflow-y: auto;
+}
+#sidebar.open { transform: none; }
+#sidebar button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: #dbe4f0;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#sidebar button:hover { background: rgba(255,255,255,.1); }
+#sidebar button.cur { background: #2563eb; color: #fff; }
+#sidebar .act {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 10px;
+}
+#pageInfo {
+  position: fixed;
+  right: 16px;
+  bottom: 12px;
+  color: rgba(255,255,255,.55);
+  font-size: 14px;
+  z-index: 100;
+}
+#overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  background: #0b0f17;
+}
+.viewer-title { font-size: 22px; }
+#printArea { display: none; }
+@media print {
+  body > #stage,
+  body > #menuBtn,
+  body > #sidebar,
+  body > #pageInfo,
+  body > #overlay { display: none !important; }
+  html, body { background: #fff; overflow: visible; height: auto; }
+  #printArea { display: block !important; }
+  #printArea .slide { page-break-after: always; break-after: page; }
+}
+@page { size: 508mm 285.75mm; margin: 0; }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SlideForge — エディタ</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme/base.css">
+<link rel="stylesheet" href="theme/custom.css">
+</head>
+<body>
+<div id="app">
+  <div id="menubar">
+    <button id="btnOpen">開く</button>
+    <button id="btnSave">保存</button>
+    <button id="btnSaveAs">名前を付けて保存</button>
+    <div class="dd"><button>書き出し ▾</button>
+      <div class="ddm">
+        <button id="btnExportMd">Markdown</button>
+        <button id="btnExportHtml">単一HTML</button>
+      </div>
+    </div>
+    <div class="dd"><button>挿入 ▾</button>
+      <div class="ddm">
+        <button data-ins="textbox">テキストボックス</button>
+        <button data-ins="rect">四角形</button>
+        <button data-ins="ellipse">円</button>
+        <button data-ins="table">表</button>
+        <button data-ins="chart">グラフ</button>
+        <button data-ins="animate">アニメーション枠</button>
+        <button data-ins="image">画像…</button>
+        <button data-ins="video">動画…</button>
+        <button data-ins="audio">音声…</button>
+      </div>
+    </div>
+    <div class="dd"><button>テーマ ▾</button>
+      <div class="ddm">
+        <button data-theme="white">ホワイト</button>
+        <button data-theme="dark">ダーク</button>
+        <button data-theme="blue">ブルー</button>
+      </div>
+    </div>
+    <button id="btnReplace">検索/置換</button>
+    <button id="btnPptx">PPTXインポート</button>
+    <button id="btnMd">原稿（Markdown）</button>
+    <button id="btnNotes">ノート</button>
+    <button id="btnComments">コメント</button>
+    <button id="btnInfo">資料情報</button>
+    <span class="spacer"></span>
+    <button id="btnUndo" title="Ctrl+Z">↶</button>
+    <button id="btnRedo" title="Ctrl+Y">↷</button>
+    <button id="btnShow">▶ スライドショー</button>
+  </div>
+
+  <div id="slideList"></div>
+  <div id="canvasWrap"><div id="canvas" class="slide theme-white"></div></div>
+  <div id="props"><div class="props-empty">オブジェクトを選択してください</div></div>
+  <div id="mdPanel">
+    <div class="md-panel-note">この原稿の変更はJSON本体へ自動反映されます</div>
+    <textarea id="mdArea" spellcheck="false"></textarea>
+  </div>
+  <div id="notesPanel"><textarea id="noteArea" spellcheck="true" placeholder="現在のスライドの台本 / 発表者ノート"></textarea></div>
+  <div id="commentsPanel">
+    <div id="commentList"></div>
+    <div class="comment-compose">
+      <textarea id="commentInput" spellcheck="true" placeholder="確認してほしい点や修正案"></textarea>
+      <button id="btnAddComment" type="button">コメント追加</button>
+    </div>
+  </div>
+  <div id="status">
+    <span id="stSlide"></span><span id="stSel"></span><span id="stZoom"></span>
+    <span class="spacer"></span><span id="stFile"></span>
+  </div>
+</div>
+
+<div class="ctxmenu" id="objMenu">
+  <button data-act="front">前面へ移動</button>
+  <button data-act="forward">一つ前へ</button>
+  <button data-act="backward">一つ後ろへ</button>
+  <button data-act="back">背面へ移動</button>
+  <hr>
+  <button data-act="dup">複製</button>
+  <button data-act="del">削除</button>
+</div>
+<div class="ctxmenu" id="slideMenu">
+  <button data-act="add">新規スライド追加</button>
+  <button data-act="dup">複製</button>
+  <button data-act="del">削除</button>
+  <hr>
+  <button data-act="trFade">切り替え効果: フェード</button>
+  <button data-act="trNone">切り替え効果: なし</button>
+</div>
+
+<input type="file" id="fileOpen" accept=".md,.json,.sf.json" style="display:none">
+<input type="file" id="fileMedia" style="display:none">
+
+<script src="document_format.js"></script>
+<script src="document_lifecycle.js"></script>
+<script src="parser.js"></script>
+<script src="generator.js"></script>
+<script src="effects.js"></script>
+<script src="som.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>

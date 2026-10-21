@@ -1,0 +1,45 @@
+{
+  "name": "slideforge",
+  "version": "0.1.0",
+  "author": "SlideForge Developer",
+  "description": "Markdown-based PowerPoint alternative slide editor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test --test-concurrency=1 app/*.test.js",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "fast-xml-parser": "^4.3.6",
+    "pptxgenjs": "^4.0.1"
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.slideforge.app",
+    "productName": "SlideForge",
+    "files": [
+      "app/**/*",
+      "!app/**/*.test.js",
+      "bin/**/*",
+      "main.js",
+      "preload.js"
+    ],
+    "asarUnpack": [
+      "bin/officecli.exe"
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
